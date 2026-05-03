@@ -19,24 +19,30 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    @page {
+        size: A4;
+        margin: 0;
+        background-color: #E8DFC8;
+    }
+
     body {
       background-color: #E8DFC8;
       font-family: 'IM Fell English', Georgia, serif;
       color: var(--encre);
-      min-height: 100vh;
       padding: 30px 20px;
     }
 
     .page {
       background: var(--ivoire);
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto;
-      box-shadow: 4px 4px 20px rgba(0,0,0,0.25);
+      box-shadow: 4px 4px 20px rgba(0,0,0,0.15);
+      position: relative;
     }
 
     /* ── EN-TÊTE ── */
     .entete {
-      padding: 18px 50px 0;
+      padding: 18px 40px 0;
       border-bottom: 4px double var(--filet);
     }
     .entete-top {
@@ -54,7 +60,7 @@
     .titre-journal {
       text-align: center;
       font-family: 'UnifrakturMaguntia', cursive;
-      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-size: 4.5rem;
       color: var(--encre);
       line-height: 1;
       padding-bottom: 10px;
@@ -71,7 +77,7 @@
 
     /* ── TITRE ARTICLE ── */
     .titre-section {
-      padding: 20px 50px 18px;
+      padding: 20px 40px 18px;
       text-align: center;
       border-bottom: 4px double var(--filet);
     }
@@ -85,20 +91,19 @@
     }
     .grand-titre {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-size: 2.8rem;
       font-weight: 900;
       line-height: 1.1;
       color: var(--encre);
       margin-bottom: 12px;
     }
-    .grand-titre em { font-style: italic; }
     .chapeau {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 1rem;
-      line-height: 1.65;
+      font-size: 1.1rem;
+      line-height: 1.6;
       color: var(--brun);
-      max-width: 580px;
+      max-width: 650px;
       margin: 0 auto 14px;
     }
     .ligne-auteur {
@@ -111,42 +116,32 @@
       justify-content: center;
       gap: 24px;
     }
-    .ligne-auteur span + span::before { content: '❧ '; color: var(--rouge-vieux); }
 
     .ornement {
       text-align: center;
       padding: 12px 0;
-      font-size: 1rem;
-      letter-spacing: 0.6em;
       color: var(--rouge-vieux);
       border-bottom: 1px solid var(--filet);
     }
 
     /* ── CORPS ── */
-    .corps { padding: 0 50px 50px; }
+    .corps { padding: 0 40px 40px; }
 
-    /* IMAGE PRINCIPALE */
     .img-principale {
       width: 100%;
-      height: 320px;
+      height: 300px;
       background: var(--ivoire-fonce);
       border: 1px solid var(--brun-clair);
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       margin: 30px 0 20px;
-      color: var(--brun-clair);
       font-family: 'Special Elite', serif;
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      gap: 10px;
+      font-size: 12px;
+      color: var(--brun-clair);
+      text-align: center;
     }
-    .img-principale .icone { font-size: 2.5rem; opacity: 0.4; }
-    .img-principale span { opacity: 0.6; }
 
-    /* ATTAQUE */
     .attaque {
       margin-bottom: 24px;
       padding-bottom: 20px;
@@ -154,16 +149,16 @@
     }
     .attaque p {
       font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       line-height: 1.8;
-      color: var(--encre-doux);
+      text-align: justify;
     }
     .attaque p::first-letter {
       font-family: 'UnifrakturMaguntia', cursive;
       font-size: 4.5rem;
       float: left;
-      line-height: 0.75;
-      margin: 8px 8px 0 0;
+      line-height: 0.7;
+      margin: 10px 12px 0 0;
       color: var(--rouge-vieux);
     }
 
@@ -171,91 +166,81 @@
     .colonnes {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
-      gap: 0;
+      gap: 25px;
     }
-
-    .col {
-      padding: 0 22px;
-      border-right: 1px solid var(--brun-clair);
-    }
-    .col:first-child { padding-left: 0; }
-    .col:last-child { padding-right: 0; border-right: none; }
 
     .col p {
-      font-size: 0.92rem;
-      line-height: 1.85;
-      color: var(--encre-doux);
+      font-size: 0.95rem;
+      line-height: 1.75;
       margin-bottom: 14px;
       text-align: justify;
-      hyphens: auto;
     }
 
     .sous-titre {
       font-family: 'Playfair Display', serif;
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       text-align: center;
       border-top: 1px solid var(--filet);
       border-bottom: 1px solid var(--filet);
       padding: 6px 0;
       margin: 0 0 14px;
-      color: var(--encre);
-    }
-
-    /* IMAGE DANS COLONNE */
-    .img-col {
-      width: 100%;
-      height: 160px;
-      background: var(--ivoire-fonce);
-      border: 1px solid var(--brun-clair);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: 14px 0;
-      color: var(--brun-clair);
-      font-family: 'Special Elite', serif;
-      font-size: 9px;
-      letter-spacing: 0.12em;
       text-transform: uppercase;
-      gap: 6px;
+      letter-spacing: 0.05em;
     }
-    .img-col .icone { font-size: 1.8rem; opacity: 0.35; }
 
-    /* CITATION */
+    /* ENCADRÉS AMÉLIORÉS */
+    .encadre {
+      background: var(--ivoire-fonce);
+      border-left: 4px solid var(--rouge-vieux);
+      padding: 15px;
+      margin: 15px 0;
+    }
+    .encadre h4 {
+      font-family: 'Special Elite', serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rouge-vieux);
+      margin-bottom: 8px;
+    }
+    .encadre p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+
     .citation {
       font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 0.95rem;
+      font-size: 1rem;
       line-height: 1.6;
       color: var(--rouge-vieux);
       text-align: center;
       border-top: 2px solid var(--filet);
       border-bottom: 2px solid var(--filet);
-      padding: 12px 10px;
-      margin: 14px 0;
+      padding: 15px 10px;
+      margin: 15px 0;
     }
     .citation small {
       display: block;
       font-style: normal;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
+      font-size: 0.75rem;
       text-transform: uppercase;
       color: var(--brun-clair);
-      margin-top: 6px;
+      margin-top: 8px;
     }
 
-    /* CHIFFRE CLÉ */
     .chiffre {
       text-align: center;
       background: var(--ivoire-fonce);
       border: 1px solid var(--brun-clair);
       padding: 12px 8px;
-      margin: 14px 0;
+      margin: 15px 0;
     }
     .chiffre .nb {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: 900;
       color: var(--rouge-vieux);
       display: block;
@@ -264,165 +249,80 @@
     .chiffre .leg {
       font-family: 'Special Elite', serif;
       font-size: 9px;
-      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--brun);
       margin-top: 4px;
       display: block;
     }
 
-    /* CONCLUSION */
+    /* CONCLUSION - AMÉLIORATION LISIBILITÉ */
     .conclusion {
       background: var(--encre);
-      padding: 28px 40px;
+      padding: 30px 40px;
       margin-top: 30px;
-    }
-    .conclusion .conc-label {
-      font-family: 'Special Elite', serif;
-      font-size: 9px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--rouge-vieux);
-      margin-bottom: 8px;
+      color: #FFFFFF;
     }
     .conclusion h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--ivoire);
-      margin-bottom: 12px;
+      font-size: 1.3rem;
       border-bottom: 1px solid #444;
-      padding-bottom: 8px;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
     }
     .conclusion p {
-      font-size: 0.92rem;
-      line-height: 1.85;
-      color: #D8D0C4;
-      margin-bottom: 10px;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #F0E8D5; /* Ivoire clair pour meilleur contraste */
+      margin-bottom: 12px;
     }
     .conclusion .question-finale {
-      font-family: 'Playfair Display', serif;
       font-style: italic;
-      font-size: 1rem;
-      color: var(--ivoire);
       border-top: 1px solid #555;
-      padding-top: 12px;
-      margin-top: 8px;
-    }
-
-    /* SÉPARATEUR */
-    .sep {
-      text-align: center;
-      padding: 12px 0;
-      border-top: 1px solid var(--filet);
-      border-bottom: 4px double var(--filet);
-      margin: 0 50px;
-      font-size: 0.9rem;
-      letter-spacing: 0.5em;
-      color: var(--brun-clair);
+      padding-top: 15px;
+      margin-top: 10px;
     }
 
     /* BIBLIOGRAPHIE */
     .biblio {
-      background: var(--encre);
-      padding: 40px 50px;
+      background: #221E1A;
+      padding: 40px;
+      color: #D8D0C4;
     }
-    .biblio-entete {
-      text-align: center;
-      margin-bottom: 28px;
-      border-bottom: 4px double #555;
-      padding-bottom: 20px;
-    }
-    .biblio-entete .biblio-label {
-      font-family: 'Special Elite', serif;
-      font-size: 10px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--rouge-vieux);
-      display: block;
-      margin-bottom: 8px;
-    }
-    .biblio-entete h2 {
+    .biblio h2 {
       font-family: 'UnifrakturMaguntia', cursive;
-      font-size: 2rem;
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 25px;
       color: var(--ivoire);
     }
     .biblio-grille {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2px;
+      gap: 15px;
     }
     .biblio-carte {
-      background: #221E1A;
-      padding: 18px 18px 18px 14px;
-      display: flex;
-      gap: 14px;
+      background: #2A2521;
+      padding: 15px;
       border: 1px solid #333;
     }
-    .biblio-num {
+    .biblio-carte h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--rouge-vieux);
-      opacity: 0.45;
-      line-height: 1;
-      min-width: 40px;
-    }
-    .biblio-contenu { flex: 1; }
-    .biblio-type {
-      font-family: 'Special Elite', serif;
-      font-size: 9px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--rouge-vieux);
-      margin-bottom: 4px;
-    }
-    .biblio-contenu h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.85rem;
-      font-weight: 700;
+      font-size: 0.9rem;
       color: var(--ivoire);
-      margin-bottom: 4px;
-      line-height: 1.3;
+      margin-bottom: 5px;
     }
-    .biblio-contenu p {
-      font-size: 0.76rem;
-      color: #7A7068;
-      line-height: 1.55;
-      margin-bottom: 8px;
-    }
-    .biblio-lien {
-      font-family: 'Special Elite', serif;
-      font-size: 9px;
-      color: var(--rouge-vieux);
-      text-decoration: none;
-    }
-    .biblio-lien:hover { text-decoration: underline; }
+    .biblio-carte p { font-size: 0.75rem; color: #888; }
 
     /* FOOTER */
     footer {
       background: var(--encre);
-      color: #555;
+      color: #777;
       font-family: 'Special Elite', serif;
       font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 14px 50px;
+      padding: 15px 40px;
       display: flex;
       justify-content: space-between;
-      border-top: 4px double #444;
-    }
-
-    @media (max-width: 700px) {
-      .entete, .titre-section, .corps, .sep { padding-left: 20px; padding-right: 20px; }
-      .colonnes { grid-template-columns: 1fr; }
-      .col { border-right: none; padding: 0; border-bottom: 1px solid var(--brun-clair); padding-bottom: 20px; margin-bottom: 20px; }
-      .biblio { padding: 30px 20px; }
-      .biblio-grille { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 6px; text-align: center; padding: 14px 20px; }
-      .entete-top { flex-direction: column; gap: 4px; text-align: center; }
-      .img-principale { height: 200px; }
-      .sep { margin: 0 20px; }
+      border-top: 1px solid #333;
     }
   </style>
 </head>
@@ -441,12 +341,13 @@
 
   <!-- TITRE -->
   <section class="titre-section">
-    <div class="rubrique">✦ Dossier · Bien-être Animal ✦</div>
+    <div class="rubrique">✦ Dossier · Bien-être Animal & Enjeux Sociaux ✦</div>
     <h1 class="grand-titre">Abattoirs : la souffrance animale<br/><em>au cœur du débat citoyen</em></h1>
-    <p class="chapeau">Des scandales répétés, des lois insuffisantes, des millions d'animaux concernés chaque jour. La France peut-elle encore détourner le regard ?</p>
+    <p class="chapeau">Des scandales éthiques à la détresse des travailleurs, la France peut-elle encore détourner le regard ? Analyse d'un système industriel à bout de souffle.</p>
     <div class="ligne-auteur">
       <span>Par Mathieu</span>
-
+      <span>Classe de 3ème [A]</span>
+      <span>Collège [Nom de ton école]</span>
     </div>
   </section>
 
@@ -455,14 +356,14 @@
   <!-- CORPS -->
   <main class="corps">
 
-    <!-- IMAGE PRINCIPALE -->
-    <figure style="margin:30px 0 20px; border:1px solid #8C7A5A; padding:6px; background:#F0E8D5;">
-  <img src="Slaughterhouse.jpg" style="width:100%; height:320px; object-fit:cover; display:block;">
-  <figcaption style="font-family:'Special Elite',serif; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:#5C4A2A; text-align:center; padding:6px 0 2px;">© Crédit photo — description de l'image</figcaption>
-</figure>
+    <div class="img-principale">
+      [INSÉRER PHOTO : VUE D'ENSEMBLE INDUSTRIELLE]<br>
+      alt="Vue d'un abattoir industriel illustrant le gigantisme de la production"
+    </div>
+
     <!-- ATTAQUE -->
     <div class="attaque">
-      <p>Chaque jour en France, trois millions d'animaux sont mis à mort dans les abattoirs. Derrière ce chiffre vertigineux se cachent des réalités que peu de citoyens connaissent — et que certains préféreraient ne jamais voir.</p>
+      <p>Chaque jour en France, trois millions d'animaux sont mis à mort dans les abattoirs. Derrière ce chiffre vertigineux se cachent des réalités que peu de citoyens connaissent — et que certains préféreraient ne jamais voir. Mais au-delà de la bête, c'est aussi l'humain qui se retrouve broyé par ce rouage industriel.</p>
     </div>
 
     <!-- 3 COLONNES -->
@@ -471,25 +372,29 @@
       <!-- COL 1 -->
       <div class="col">
         <h2 class="sous-titre">Les scandales</h2>
-        <p>Depuis 2015, l'association L214 publie des enquêtes filmées dans des abattoirs français. Animaux mal étourdis, souffrances visibles, non-conformités répétées : chaque révélation provoque un choc dans l'opinion publique.</p>
-        <figure style="margin:14px 0; border:1px solid #8C7A5A; padding:5px; background:#F0E8D5;">
-  <img src="téléchargé.jpg" style="width:100%; height:200px; object-fit:contain; display:block;">
-  <figcaption style="font-family:'Special Elite',serif; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:#5C4A2A; text-align:center; padding:5px 0 2px;">© Dessin de presse — L'abattoir de la honte</figcaption>
-</figure>
+        <p>Depuis 2015, les enquêtes filmées par L214 ont agi comme un électrochoc. Animaux mal étourdis, gestes de cruauté gratuite ou non-conformités répétées : l'opinion publique découvre l'envers du décor.</p>
+        
         <div class="chiffre">
           <span class="nb">80 %</span>
           <span class="leg">d'abattoirs non conformes en 2016</span>
+        </div>
+
+        <div class="encadre">
+          <h4>✦ Lexique</h4>
+          <p><strong>Être sensible :</strong> Terme juridique (Code Civil) reconnaissant que l'animal a la capacité de ressentir douleur et émotions.</p>
         </div>
       </div>
 
       <!-- COL 2 -->
       <div class="col">
-        <h2 class="sous-titre">La loi</h2>
-        <p>La réglementation impose l'étourdissement des animaux avant la mise à mort. Pourtant, 62 % des abattoirs dérogent à cette obligation. Les inspections existent, mais leurs résultats restent trop souvent sans suite.</p>
+        <h2 class="sous-titre">L'humain</h2>
+        <p>On oublie souvent la pénibilité extrême pour les ouvriers. Bruit, cadences infernales et "choc émotionnel" répétitif : ce travail de mort engendre une détresse sociale et un turnover massif des salariés.</p>
+        
         <div class="citation">
-          « Faire souffrir un animal est contraire à l'éthique qui impose de respecter leur nature sensible. »
+          « Faire souffrir un animal est contraire à l'éthique qui impose de respecter sa nature sensible. »
           <small>— Fondation Droit Animal</small>
         </div>
+
         <div class="chiffre">
           <span class="nb">3 M</span>
           <span class="leg">animaux abattus chaque jour</span>
@@ -499,101 +404,56 @@
       <!-- COL 3 -->
       <div class="col">
         <h2 class="sous-titre">Les solutions</h2>
-        <p>Caméras dans les abattoirs, abattoirs mobiles, renforcement des contrôles : les propositions ne manquent pas. En 2024, 63 % des Français estimaient que les animaux étaient mal défendus. La réponse politique, elle, tarde à venir.</p>
-        <figure style="margin:14px 0; border:1px solid #8C7A5A; padding:5px; background:#F0E8D5;">
-  <img src="161217-abattoirs-pas-de-video-surveillance-cambon.jpg" style="width:100%; height:200px; object-fit:contain; display:block;">
-  <figcaption style="font-family:'Special Elite',serif; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:#5C4A2A; text-align:center; padding:5px 0 2px;">© Urtikan.net — Vidéosurveillance dans les abattoirs</figcaption>
-</figure>
+        <p>Vidéosurveillance, abattoirs mobiles ou réduction de la production : les propositions ne manquent pas. Pourtant, la réponse politique tarde face aux enjeux économiques du prix de la viande.</p>
+        
+        <div class="encadre">
+          <h4>✦ Le Consommateur</h4>
+          <p>Notre demande pour une viande à bas prix est l'un des moteurs des cadences industrielles dénoncées par les ONG.</p>
+        </div>
+
+        <div class="chiffre">
+          <span class="nb">63 %</span>
+          <span class="leg">des Français jugent les animaux mal défendus</span>
+        </div>
       </div>
 
     </div>
 
     <!-- CONCLUSION -->
     <div class="conclusion">
-      <div class="conc-label">✦ Conclusion</div>
       <h2>Une question de société</h2>
-      <p>La question des abattoirs touche à nos valeurs collectives. Réformer ce secteur, c'est reconnaître que les animaux sont des êtres sensibles, capables de souffrir.</p>
-      <p class="question-finale">La vraie question n'est peut-être pas ce qui se passe derrière les portes closes — mais pourquoi on préfère ne pas le savoir.</p>
+      <p>La question des abattoirs touche à nos valeurs collectives. Réformer ce secteur, c'est reconnaître que les animaux sont des êtres sensibles, mais c'est aussi respecter la dignité des hommes qui y travaillent.</p>
+      <p class="question-finale">La vraie question n'est peut-être pas ce qui se passe derrière les portes closes — mais pourquoi nous préférons ne pas le savoir.</p>
     </div>
 
   </main>
 
-  <div class="sep">✦ &nbsp; ✦ &nbsp; ✦</div>
-
   <!-- BIBLIOGRAPHIE -->
   <section class="biblio">
-    <div class="biblio-entete">
-      <span class="biblio-label">✦ Sources ✦</span>
-      <h2>Références</h2>
-    </div>
+    <h2>Références & Sources</h2>
     <div class="biblio-grille">
-
       <div class="biblio-carte">
-        <div class="biblio-num">01</div>
-        <div class="biblio-contenu">
-          <div class="biblio-type">Association</div>
-          <h3>L214 — L'abattage des animaux</h3>
-          <p>Enquêtes filmées depuis 2008 et données sur les non-conformités.</p>
-          <a href="https://www.l214.com/animaux/abattage/abattage-des-animaux/" target="_blank" class="biblio-lien">www.l214.com →</a>
-        </div>
+        <h3>L214 — Enquêtes de terrain</h3>
+        <p>Données sur les abattoirs et vidéos de sensibilisation.</p>
       </div>
-
       <div class="biblio-carte">
-        <div class="biblio-num">02</div>
-        <div class="biblio-contenu">
-          <div class="biblio-type">Assemblée nationale · Nov. 2024</div>
-          <h3>Question n°2219 — Maltraitance animale</h3>
-          <p>Question parlementaire sur l'abattoir de Maurienne. Journal Officiel, 26 novembre 2024.</p>
-          <a href="https://www.assemblee-nationale.fr/dyn/17/questions/QANR5L17QE2219" target="_blank" class="biblio-lien">assemblee-nationale.fr →</a>
-        </div>
+        <h3>Rapport Falorni (2016)</h3>
+        <p>Commission d'enquête parlementaire sur les conditions d'abattage.</p>
       </div>
-
       <div class="biblio-carte">
-        <div class="biblio-num">03</div>
-        <div class="biblio-contenu">
-          <div class="biblio-type">Fondation Droit Animal</div>
-          <h3>Rapport Falorni (2016)</h3>
-          <p>Rapport parlementaire sur les conditions d'abattage. Constate l'insuffisance du bien-être animal.</p>
-          <a href="https://www.fondation-droit-animal.org/rapport-de-la-commission-denquete-sur-les-abattoirs/" target="_blank" class="biblio-lien">fondation-droit-animal.org →</a>
-        </div>
+        <h3>Fondation Droit Animal</h3>
+        <p>Analyses juridiques sur l'étourdissement et l'éthique.</p>
       </div>
-
       <div class="biblio-carte">
-        <div class="biblio-num">04</div>
-        <div class="biblio-contenu">
-          <div class="biblio-type">Fondation Droit Animal</div>
-          <h3>CNEAb — vous avez dit éthique ?</h3>
-          <p>Révèle que 62 % des abattoirs dérogent à l'obligation d'étourdissement.</p>
-          <a href="https://www.fondation-droit-animal.org/110-comite-national-ethique-des-abattoirs-vous-avez-dit-ethique/" target="_blank" class="biblio-lien">fondation-droit-animal.org →</a>
-        </div>
+        <h3>Assemblée Nationale (2024)</h3>
+        <p>Questions parlementaires sur les réformes en cours.</p>
       </div>
-
-      <div class="biblio-carte">
-        <div class="biblio-num">05</div>
-        <div class="biblio-contenu">
-          <div class="biblio-type">OABA · 2024</div>
-          <h3>La condition animale aux législatives 2024</h3>
-          <p>Tribune de 26 ONG. 63 % des Français estiment les animaux mal défendus.</p>
-          <a href="https://oaba.fr/legislatives2024-condition-animale/" target="_blank" class="biblio-lien">oaba.fr →</a>
-        </div>
-      </div>
-
-      <div class="biblio-carte">
-        <div class="biblio-num">06</div>
-        <div class="biblio-contenu">
-          <div class="biblio-type">Ministère de l'Agriculture</div>
-          <h3>Avis n°82 du CNA</h3>
-          <p>Recommandations officielles sur la protection animale et la transparence dans les abattoirs.</p>
-          <a href="https://agriculture.gouv.fr/sites/default/files/cna_avis-82-comite-ethique-abattoirs6.pdf" target="_blank" class="biblio-lien">agriculture.gouv.fr →</a>
-        </div>
-      </div>
-
     </div>
   </section>
 
   <footer>
-    <span>La Voix Citoyenne — Publication scolaire</span>
-    <span>EMC · [Ton École] · Avril 2026</span>
+    <span>La Voix Citoyenne — Publication scolaire d'EMC</span>
+    <span>Avril 2026 · [Ton Nom de Professeur]</span>
   </footer>
 
 </div>
